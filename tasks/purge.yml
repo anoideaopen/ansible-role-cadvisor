@@ -1,0 +1,15 @@
+---
+- name: "stop"
+  community.docker.docker_container:
+    name: "{{ cadvisor_image_name }}"
+    state: absent
+
+- name: "purge"
+  ansible.builtin.raw: |
+    if [ "{{ cadvisor_force_img_prune }}" = "yes" ]
+    then
+      docker image prune -a --force | grep "Total reclaimed space: 0B" || echo 'changed'
+    fi
+  become: true
+  register: cadvisor_purge_out
+  changed_when: cadvisor_purge_out.stdout is search('changed')

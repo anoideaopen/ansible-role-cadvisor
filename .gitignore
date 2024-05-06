@@ -1,0 +1,8 @@
+*~
+*.swp
+*.lock
+*.orig
+*.retry
+.DS_Store
+.vscod*
+.idea*

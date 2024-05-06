@@ -1,0 +1,13 @@
+---
+cadvisor_purge: "no"
+cadvisor_force_img_prune: "yes"
+cadvisor_force_update: "no"
+cadvisor_image: "gcr.io/cadvisor/cadvisor"
+cadvisor_version: "v0.47.2"
+cadvisor_host_ip: "127.0.0.1"
+cadvisor_host_port: "8088"
+cadvisor_home: "/opt/cadvisor"
+cadvisor_expose_ports: "yes"
+cadvisor_published_ports:
+  - "{{ cadvisor_host_ip }}:{{ cadvisor_host_port }}:8080"
+cadvisor_container_labels: {}
